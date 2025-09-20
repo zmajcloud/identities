@@ -9,12 +9,12 @@ KEY1="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/m
 
 # 2. Verify that both provided files exist and are readable.
 if [ ! -f "$KEY1" ] || [ ! -r "$KEY1" ]; then
-    echo "Error: Public key file '$ACCOUNT_NAME'_1 does not exist or is not readable."
+    echo "Error: Public key file '$KEY1' does not exist or is not readable."
     exit 1
 fi
 
 if [ ! -f "$KEY2" ] || [ ! -r "$KEY2" ]; then
-    echo "Error: Public key file '$ACCOUNT_NAME'_2 does not exist or is not readable."
+    echo "Error: Public key file '$KEY2' does not exist or is not readable."
     exit 1
 fi
 
