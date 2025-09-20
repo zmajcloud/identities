@@ -1,35 +1,20 @@
 #!/bin/bash
 
-# A script to add two public keys to the authorized_keys file.
+# Configuring identities
 
-# --- Main Logic ---
-
-# 1. Check if exactly two arguments (the public key files) are provided.
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <account_name>"
-    exit 1
-fi
-# Assign the file paths to variables for clarity.
-ACCOUNT_NAME=$1
-
-# --- Configuration ---
-# The directory where SSH keys are stored.
-# SSH_DIR="/home/$(ACOUNT_NAME)/.ssh"
-SSH_DIR="/home/${ACCOUNT_NAME}/.ssh"
-# The file that stores authorized public keys.
-AUTHORIZED_KEYS_FILE="${SSH_DIR}/authorized_keys"
+ACCOUNT_NAME=$USER
 
 KEY1="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/master/accounts/${ACCOUNT_NAME}_1.pub)"
 KEY1="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/master/accounts/${ACCOUNT_NAME}_2.pub)"
 
 # 2. Verify that both provided files exist and are readable.
 if [ ! -f "$KEY1" ] || [ ! -r "$KEY1" ]; then
-    echo "Error: Public key file '$KEY1' does not exist or is not readable."
+    echo "Error: Public key file '$ACCOUNT_NAME'_1 does not exist or is not readable."
     exit 1
 fi
 
 if [ ! -f "$KEY2" ] || [ ! -r "$KEY2" ]; then
-    echo "Error: Public key file '$KEY2' does not exist or is not readable."
+    echo "Error: Public key file '$ACCOUNT_NAME'_2 does not exist or is not readable."
     exit 1
 fi
 
