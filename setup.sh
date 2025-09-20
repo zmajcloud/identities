@@ -5,7 +5,7 @@
 ACCOUNT_NAME=$USER
 
 KEY1="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/master/accounts/${ACCOUNT_NAME}_1.pub)"
-KEY1="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/master/accounts/${ACCOUNT_NAME}_2.pub)"
+KEY2="$(curl https://raw.githubusercontent.com/zmajcloud/identities/refs/heads/master/accounts/${ACCOUNT_NAME}_2.pub)"
 
 # 2. Verify that both provided files exist and are readable.
 if [ -z "$KEY1" ]; then
